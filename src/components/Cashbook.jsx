@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { addItem } from "../utils/reducer";
 import { useDispatch } from "react-redux";
+import List from "./List";
 const Cashbook = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [type, setType] = useState("Cash In");
@@ -161,6 +162,7 @@ const Cashbook = () => {
           </div>
         </div>
       )}
+        <List />
     </div>
   );
 };
