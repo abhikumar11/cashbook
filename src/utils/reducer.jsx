@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const cashSlice=createSlice({
     name:"cashbook",
-    initialState:{cashbook:[]},
+    initialState:{expenseList:[]},
     reducers:{
         addItem:(state,action)=>{
-            state.cashbook.push(action.payload);
+            state.expenseList.push(action.payload);
         }
     }
 });
