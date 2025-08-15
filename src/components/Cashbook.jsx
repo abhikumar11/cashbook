@@ -24,7 +24,7 @@ const Cashbook = () => {
       <div className="max-w-xl mx-auto text-center">
         <h1 className="text-3xl font-bold text-indigo-600 mb-8">Cashbook</h1>
 
-        {/* Open Modal Button */}
+        
         <button
           onClick={() => setIsOpen(true)}
           className="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg shadow"
@@ -33,7 +33,6 @@ const Cashbook = () => {
         </button>
       </div>
 
-      {/* Modal */}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-100">
           <div className="bg-white rounded-xl shadow-lg w-full max-w-lg p-6 relative">
@@ -45,11 +44,10 @@ const Cashbook = () => {
               ✕
             </button>
 
-            <h2 className="text-xl font-bold text-center text-indigo-600 mb-6">
+            <h2 style={{color:type==="Cash In"?"green":"red"}} className="text-xl font-bold text-center  mb-6">
               Add {type} Transaction
             </h2>
 
-            {/* Toggle */}
             <div className="flex justify-center gap-4 mb-6">
               <button
                 onClick={() => setType("Cash In")}
@@ -73,9 +71,8 @@ const Cashbook = () => {
               </button>
             </div>
 
-            {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Date */}
+            
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Date
@@ -88,7 +85,7 @@ const Cashbook = () => {
                 />
               </div>
 
-              {/* Amount */}
+              
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Amount
@@ -102,7 +99,7 @@ const Cashbook = () => {
                 />
               </div>
 
-              {/* Remarks */}
+
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Remarks
@@ -116,7 +113,6 @@ const Cashbook = () => {
                 />
               </div>
 
-              {/* Category + Payment */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-1">
@@ -142,7 +138,7 @@ const Cashbook = () => {
                 </div>
               </div>
 
-              {/* Buttons */}
+              
               <div className="flex justify-end gap-4 pt-4">
                 <button
                   type="submit"

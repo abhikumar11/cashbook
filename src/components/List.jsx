@@ -18,7 +18,7 @@ const List = () => {
     <div className="max-w-5xl mx-auto mt-8 p-6 bg-white rounded-2xl shadow-lg">
       <h1 className="text-2xl font-bold text-gray-800 mb-6">💰 Expense History</h1>
 
-      {/* Summary Section */}
+      
       <div className="flex flex-wrap gap-6 mb-6">
         <div className="flex-1 p-4 bg-green-50 rounded-lg shadow-sm border border-green-200">
           <p className="text-sm text-green-700 font-medium">Total Cash In</p>
