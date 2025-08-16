@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { addItem } from "../utils/reducer";
 import { useDispatch } from "react-redux";
 import List from "./List";
+import CatChart from "./CatChart";
 const Cashbook = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [type, setType] = useState("Cash In");
@@ -159,6 +160,7 @@ const Cashbook = () => {
         </div>
       )}
         <List />
+        <CatChart/>
     </div>
   );
 };
