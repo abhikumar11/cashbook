@@ -33,7 +33,7 @@ const CatChart = () => {
   }
   return (
     <div style={{ maxWidth: "500px", margin: "20px auto" }}>
-      <h2 className="text-center font-bold mb-4">Category-wise Transactions</h2>
+      <h2 className="text-center font-bold mb-4">Category Wise Transactions</h2>
       {labels.length > 0
         ? <Pie data={data} />
         : <p className="text-center text-gray-500">No data available</p>}
