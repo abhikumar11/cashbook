@@ -7,16 +7,16 @@ const Cashbook = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [type, setType] = useState("Cash In");
 
-  const [frmData,setFrmData]=useState({});
-  const dispatch=useDispatch();
+  const [frmData, setFrmData] = useState({});
+  const dispatch = useDispatch();
 
-  const handleInput=(e)=>{
-    const {name,value}=e.target;
-      setFrmData({...frmData,[name]:value});
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setFrmData({ ...frmData, [name]: value });
   }
-  const handleSubmit=(e)=>{
-      e.preventDefault();
-      dispatch(addItem({...frmData,type}));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addItem({ ...frmData, type }));
 
   }
 
@@ -24,8 +24,6 @@ const Cashbook = () => {
     <div className="min-h-screen bg-gray-50 py-10 px-4">
       <div className="max-w-xl mx-auto text-center">
         <h1 className="text-3xl font-bold text-indigo-600 mb-8">Cashbook</h1>
-
-        
         <button
           onClick={() => setIsOpen(true)}
           className="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg shadow"
@@ -45,35 +43,33 @@ const Cashbook = () => {
               ✕
             </button>
 
-            <h2 style={{color:type==="Cash In"?"green":"red"}} className="text-xl font-bold text-center  mb-6">
+            <h2 style={{ color: type === "Cash In" ? "green" : "red" }} className="text-xl font-bold text-center  mb-6">
               Add {type} Transaction
             </h2>
 
             <div className="flex justify-center gap-4 mb-6">
               <button
                 onClick={() => setType("Cash In")}
-                className={`px-4 py-2 rounded-lg font-medium shadow transition ${
-                  type === "Cash In"
+                className={`px-4 py-2 rounded-lg font-medium shadow transition ${type === "Cash In"
                     ? "bg-green-500 text-white"
                     : "bg-green-100 text-green-700 hover:bg-green-200"
-                }`}
+                  }`}
               >
                 Cash In
               </button>
               <button
                 onClick={() => setType("Cash Out")}
-                className={`px-4 py-2 rounded-lg font-medium shadow transition ${
-                  type === "Cash Out"
+                className={`px-4 py-2 rounded-lg font-medium shadow transition ${type === "Cash Out"
                     ? "bg-red-500 text-white"
                     : "bg-red-100 text-red-700 hover:bg-red-200"
-                }`}
+                  }`}
               >
                 Cash Out
               </button>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-            
+
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Date
@@ -86,7 +82,7 @@ const Cashbook = () => {
                 />
               </div>
 
-              
+
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
                   Amount
@@ -139,7 +135,7 @@ const Cashbook = () => {
                 </div>
               </div>
 
-              
+
               <div className="flex justify-end gap-4 pt-4">
                 <button
                   type="submit"
@@ -159,8 +155,8 @@ const Cashbook = () => {
           </div>
         </div>
       )}
-        <List />
-        <CatChart/>
+      <List />
+      <CatChart />
     </div>
   );
 };
