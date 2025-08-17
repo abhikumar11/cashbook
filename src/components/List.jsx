@@ -1,8 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteItem } from '../utils/reducer';
+import { Trash2 } from 'lucide-react';
 
 const List = () => {
   const cashbook = useSelector((state) => state.cashbook.expenseList);
+    console.log(cashbook);
 
   const cashin = cashbook
     .filter((item) => item.type === 'Cash In')
@@ -13,6 +16,7 @@ const List = () => {
     .reduce((sum, item) => sum + Number(item.amount), 0);
 
   const balance = cashin - cashout;
+  const dispatch=useDispatch();
 
   return (
     <div className="max-w-5xl mx-auto mt-8 p-6 bg-white rounded-2xl shadow-lg">
@@ -55,6 +59,7 @@ const List = () => {
                 <th className="p-4 text-gray-700 font-semibold">Category</th>
                 <th className="p-4 text-gray-700 font-semibold">Method</th>
                 <th className="p-4 text-gray-700 font-semibold">Type</th>
+                <th className="p-4 text-gray-700 font-semibold">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -94,6 +99,14 @@ const List = () => {
                     >
                       {item.type}
                     </span>
+                  </td>
+                   <td className="p-4">
+                   <button
+  onClick={() => dispatch(deleteItem(item.id))}
+  className="cursor-pointer p-2 rounded-full bg-red-100 text-red-700 hover:bg-red-200 transition"
+>
+  <Trash2 size={20} />
+</button>
                   </td>
                 </tr>
               ))}

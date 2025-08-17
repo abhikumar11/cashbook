@@ -16,7 +16,8 @@ const Cashbook = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addItem({ ...frmData, type }));
+    const id=Math.trunc(Math.random()*1000)+1;
+    dispatch(addItem({...frmData,id, type }));
 
   }
 
@@ -35,7 +36,7 @@ const Cashbook = () => {
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-100">
           <div className="bg-white rounded-xl shadow-lg w-full max-w-lg p-6 relative">
-            {/* Close Button */}
+           
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-xl"
@@ -116,6 +117,7 @@ const Cashbook = () => {
                     Category
                   </label>
                   <select className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" name="category" onChange={handleInput}>
+                    <option value="Salary">Salary</option>
                     <option value="Food">Food</option>
                     <option value="Shopping">Shopping</option>
                     <option value="Transport">Transport</option>
@@ -127,7 +129,7 @@ const Cashbook = () => {
                     Payment Method
                   </label>
                   <select className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" name="method" onChange={handleInput}>
-                    <option value="Cash">Cash</option>
+                    <option selected value="Cash">Cash</option>
                     <option value="UPI">UPI</option>
                     <option value="Net Banking">Net Banking</option>
                     <option value="Card">Card</option>
